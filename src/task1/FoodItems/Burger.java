@@ -1,7 +1,7 @@
 package src.task1.FoodItems;
 import java.util.List;
-// 
-public class Burger {
+import src.task1.*;
+public class Burger implements ComboInterface{
     String name;
     Double price;
     List<String>ingredients;
@@ -22,4 +22,11 @@ public class Burger {
         System.out.println("📏 Size: " + size);
         System.out.println("🌶️ Spice Level: " + spiceLevel);
     } 
+    public Double getPrice(){
+        return price;
+    }
+
+    public void deliver(){
+        System.out.println("Delivering " + name);
+    }
 }

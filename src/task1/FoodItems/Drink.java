@@ -1,6 +1,7 @@
 package src.task1.FoodItems;
+import src.task1.*;
 
-public class Drink {
+public class Drink implements ComboInterface {
     String name;
     Double price;
     String size;
@@ -26,9 +27,11 @@ public class Drink {
         System.out.println("🔘 Carbonated: " + (isCarbonated ? "Yes" : "No"));
     }
 
-    public static void main(String[] args) {
-        Drink drink = new Drink("Coca Cola", 50.0, "500ml", 35, "Coca Cola Company", true);
-        drink.display();
+    public Double getPrice() {
+        return price;
+    }
+    public void deliver() {
+        System.out.println("Delivering " + name);
     }
 
 }
