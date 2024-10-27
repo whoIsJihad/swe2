@@ -20,7 +20,7 @@ public class Burger implements ComboInterface{
         System.out.println("🥗 Ingredients:");
         
         System.out.println("📏 Size: " + size);
-        System.out.println("🌶️ Spice Level: " + spiceLevel);
+        System.out.println("🌶️ Spice Level: " + spiceLevel+"\n");
     } 
     public Double getPrice(){
         return price;

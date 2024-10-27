@@ -17,7 +17,7 @@ public class Fries implements ComboInterface{
         System.out.println("🍟 Name: " + name);
         System.out.println("💵 Price: " + price + " tk");
         System.out.println("🔥 Deep Fried: " + (isDeepFried ? "Yes" : "No"));
-        System.out.println("🍶 Mayoneese Included: " + (mayoneeseIncluded ? "Yes" : "No"));
+        System.out.println("🍶 Mayoneese Included: " + (mayoneeseIncluded ? "Yes\n" : "No\n"));
     }
 
     public Double getPrice(){

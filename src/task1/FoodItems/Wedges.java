@@ -17,7 +17,7 @@ public class Wedges implements ComboInterface{
         System.out.println("🍟 Name: " + name);
         System.out.println("💵 Price: " + price + " tk");
         System.out.println("🔥 Deep Fried: " + (isDeepFried ? "Yes" : "No"));
-        System.out.println("🍶 Sauce Included: " + (sauceIncluded ? "Yes" : "No"));
+        System.out.println("🍶 Sauce Included: " + (sauceIncluded ? "Yes\n" : "No\n"));
     }
     public Double getPrice(){
         return price;

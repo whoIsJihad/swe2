@@ -24,7 +24,7 @@ public class Drink implements ComboInterface {
         System.out.println("🍾 Size: " + size);
         System.out.println("🍬 Sugar Level: " + sugarLevel);
         System.out.println("🏢 Maker: " + maker);
-        System.out.println("🔘 Carbonated: " + (isCarbonated ? "Yes" : "No"));
+        System.out.println("🔘 Carbonated: " + (isCarbonated ? "Yes\n" : "No\n"));
     }
 
     public Double getPrice() {

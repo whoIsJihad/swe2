@@ -16,9 +16,11 @@ public interface ComboInterface {
 
 class Combos implements ComboInterface {
     List<ComboInterface> components;
+    String name;
 
-    public Combos(List<ComboInterface> components) {
+    public Combos(List<ComboInterface> components, String name) {  
         this.components = components;
+        this.name = name;
     }
 
     public void addComponent(ComboInterface component) {
@@ -29,6 +31,7 @@ class Combos implements ComboInterface {
     }
 
     public void display() {
+        System.out.println("Combo: " + name+"\n");
         components.forEach(ComboInterface::display);
     }
     public void deliver() {
