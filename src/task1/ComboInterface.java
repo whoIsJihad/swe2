@@ -16,9 +16,14 @@ public interface ComboInterface {
 }
 
 class Combos implements ComboInterface {
+    //a list of objects which implements ComboInterface
     List<ComboInterface> components;
+    //a list of objects which implements ComboInterface and also free 
+
     List<ComboInterface> freeItems;
+    //to calculate the discounted price
     Double discountPercentage;
+    //
     String name;
 
     // constructor
@@ -29,9 +34,15 @@ class Combos implements ComboInterface {
 
     public Combos(String name) {
         this.components = new LinkedList<>();
+        this.freeItems = new LinkedList<>();
         this.name = name;
     }
-    // discount percentage setter
+    //copy constructor
+    public Combos(Combos combo) {
+        this.components = new LinkedList<>(combo.components);
+        this.name = combo.name;
+        this.discountPercentage = combo.discountPercentage;
+    }
 
     // add custom created component from menu
     public void addComponent(ComboInterface component) {
@@ -98,8 +109,16 @@ class Combos implements ComboInterface {
     }
     public void display() {
         System.out.println("Combo: " + name + "\n");
-        components.forEach(ComboInterface::display);
-        freeItems.forEach(ComboInterface::display);
+        if(components.size()>0){
+            System.out.println("Items:");
+            components.forEach(ComboInterface::display);
+        }
+        
+        if(freeItems.size()>0){
+            System.out.println("Free Items:");
+            freeItems.forEach(ComboInterface::display);
+        }
+       
     }
 
     public void deliver() {

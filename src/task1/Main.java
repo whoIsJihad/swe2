@@ -1,4 +1,7 @@
+package src.task1;
+
 import java.util.Scanner;
+import src.task1.FoodItems.*;
 
 public class Main {
     public static void main(String[] args) {
