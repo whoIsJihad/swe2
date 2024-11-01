@@ -6,7 +6,12 @@ public class Fries implements ComboInterface{
     
     boolean isDeepFried;
     boolean mayoneeseIncluded;
-
+    public Fries(){
+        this.name="French Fries";
+        this.price=100.0;
+        this.isDeepFried=true;
+        this.mayoneeseIncluded=true;
+    }
     public Fries(String name, Double price, boolean isDeepFried, boolean mayoneeseIncluded) {
         this.name = name;
         this.price = price;

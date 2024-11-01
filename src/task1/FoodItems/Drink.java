@@ -9,6 +9,14 @@ public class Drink implements ComboInterface {
     String maker;
     boolean isCarbonated;
 
+    public Drink() {
+        this.name = "Coca Cola";
+        this.price = 25.0;
+        this.size = "Regular";
+        this.sugarLevel = 5;
+        this.maker = "Coca Cola Company";
+        this.isCarbonated = true;
+    }
     public Drink(String name, Double price, String size, Integer sugarLevel, String maker, boolean isCarbonated) {
         this.name = name;
         this.price = price;

@@ -7,6 +7,14 @@ public class Burger implements ComboInterface{
     List<String>ingredients;
     String size;
     Integer spiceLevel;
+    //default burger structure
+    public Burger(){
+        this.name="Beef Burger";
+        this.price=300.0;
+        this.ingredients=List.of("Beef Patty","Cheese","Lettuce","Tomato","Onion","Pickles","Ketchup","Mayonnaise");
+        this.size="Regular";
+        this.spiceLevel=1;
+    }
     public Burger(String name,Double price,List<String>ingredients,String size,Integer spiceLevel){
         this.name=name;
         this.price=price;

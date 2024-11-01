@@ -6,7 +6,12 @@ public class Wedges implements ComboInterface{
     Double price;
     boolean isDeepFried;
     boolean sauceIncluded;
-
+    public Wedges(){
+        this.name="Wedges";
+        this.price=150.0;
+        this.isDeepFried=true;
+        this.sauceIncluded=true;
+    }
     public Wedges(String name,Double price,boolean isDeepFried,boolean sauceIncluded){
         this.name=name;
         this.price=price;
