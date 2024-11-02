@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import src.task1.FoodItems.*;
+import src.task1.DefaultCombos.*;
 
 public interface ComboInterface {
 
@@ -30,6 +31,7 @@ class Combos implements ComboInterface {
     public Combos(List<ComboInterface> components, String name) {
         this.components = components;
         this.name = name;
+        this.discountPercentage = 0.0;
     }
     @Override
     public String toString() {
@@ -40,6 +42,7 @@ class Combos implements ComboInterface {
         this.components = new LinkedList<>();
         this.freeItems = new LinkedList<>();
         this.name = name;
+        this.discountPercentage = 0.0;
     }
     //copy constructor
     public Combos(Combos combo) {
@@ -85,6 +88,12 @@ class Combos implements ComboInterface {
                 break;
             case "wedges":
                 components.add(new Wedges());
+                break;
+            case "combo1":
+                components.add(new Combo1());
+                break;
+            case "combo2":  
+                components.add(new Combo2());
                 break;
             default:
                 System.out.println("Item not recognized.");
@@ -141,15 +150,16 @@ class Combos implements ComboInterface {
     public void display() {
         System.out.println("Combo: " + name);
         if(components.size()>0){
-            System.out.println("Items:");
             components.forEach(ComboInterface::display);
         }
-        
+        System.out.print("Free Items:");
         if(freeItems.size()>0){
-            System.out.println("Free Items:");
             freeItems.forEach(ComboInterface::display);
         }
-       
+        double totalValue = components.stream().mapToDouble(ComboInterface::getPrice).sum();
+        System.out.println("Total Value: " + totalValue);
+        System.out.println("Discount Percentage: " + discountPercentage + "%");
+        System.out.println("Discounted Price: " + getPrice());
     }
 
     public void deliver() {

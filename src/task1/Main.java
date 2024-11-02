@@ -61,7 +61,7 @@ public class Main {
                 case "add":
                     if (parts.length > 1) {
                         String item = parts[1].toLowerCase();
-                        if (item.equals("burger") || item.equals("fries") || item.equals("drink") || item.equals("wedges") || item.equals("shawarma")) {
+                        if (item.equals("burger") || item.equals("fries") || item.equals("drink") || item.equals("wedges") || item.equals("shawarma")|| item.equals("combo1")|| item.equals("combo2")) {
                             combo.addItem(parts[1]); 
                         } else {
                             combo.addComponent(menu,item);
