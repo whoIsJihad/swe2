@@ -7,7 +7,7 @@ public class Fries implements ComboInterface{
     boolean isDeepFried;
     boolean mayoneeseIncluded;
     public Fries(){
-        this.name="French Fries";
+        this.name="Fries";
         this.price=100.0;
         this.isDeepFried=true;
         this.mayoneeseIncluded=true;
@@ -18,11 +18,12 @@ public class Fries implements ComboInterface{
         this.isDeepFried = isDeepFried;
         this.mayoneeseIncluded = mayoneeseIncluded;
     }
+    public String toString() {
+        return name;
+    }
     public void display(){
-        System.out.println("🍟 Name: " + name);
-        System.out.println("💵 Price: " + price + " tk");
-        System.out.println("🔥 Deep Fried: " + (isDeepFried ? "Yes" : "No"));
-        System.out.println("🍶 Mayoneese Included: " + (mayoneeseIncluded ? "Yes\n" : "No\n"));
+        System.out.println(name + " - " + price + " tk");
+
     }
 
     public Double getPrice(){

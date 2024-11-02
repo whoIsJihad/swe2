@@ -10,7 +10,7 @@ public class Drink implements ComboInterface {
     boolean isCarbonated;
 
     public Drink() {
-        this.name = "Coca Cola";
+        this.name = "Drink";
         this.price = 25.0;
         this.size = "Regular";
         this.sugarLevel = 5;
@@ -25,14 +25,12 @@ public class Drink implements ComboInterface {
         this.maker = maker;
         this.isCarbonated = isCarbonated;
     }
-
+    public String toString() {
+        return name;
+    }
     public void display() {
-        System.out.println("🥤 Name: " + name);
-        System.out.println("💵 Price: " + price + " tk");
-        System.out.println("🍾 Size: " + size);
-        System.out.println("🍬 Sugar Level: " + sugarLevel);
-        System.out.println("🏢 Maker: " + maker);
-        System.out.println("🔘 Carbonated: " + (isCarbonated ? "Yes\n" : "No\n"));
+        System.out.println(name + " - " + price + " tk");
+
     }
 
     public Double getPrice() {

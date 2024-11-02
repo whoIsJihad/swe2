@@ -31,6 +31,10 @@ class Combos implements ComboInterface {
         this.components = components;
         this.name = name;
     }
+    @Override
+    public String toString() {
+        return name;
+    }
 
     public Combos(String name) {
         this.components = new LinkedList<>();
@@ -40,6 +44,7 @@ class Combos implements ComboInterface {
     //copy constructor
     public Combos(Combos combo) {
         this.components = new LinkedList<>(combo.components);
+        this.freeItems = new LinkedList<>(combo.freeItems);
         this.name = combo.name;
         this.discountPercentage = combo.discountPercentage;
     }
@@ -48,7 +53,21 @@ class Combos implements ComboInterface {
     public void addComponent(ComboInterface component) {
         components.add(component);
     }
-
+    public void addComponent(Menu menu, String name) {
+        boolean matchFound = false;
+        //search for the combo in the menu
+        for (ComboInterface combo : menu.getCombos()) {
+            if (combo instanceof Combos && ((Combos) combo).name.equalsIgnoreCase(name)) {
+                Combos newCombo = new Combos((Combos) combo);
+                components.add(newCombo);
+                matchFound = true;
+                break;
+            }
+        }
+        if (!matchFound) {
+            System.out.println("Combo with name " + name + " not found in the menu.");
+        }
+    }
     // add default component from menu
     public void addItem(String name) {
         switch (name.toLowerCase()) {
@@ -79,7 +98,19 @@ class Combos implements ComboInterface {
     }
 
     public void removeComponent(String name) {
-        components.removeIf(component -> component instanceof Combos && ((Combos) component).name.equals(name));
+        boolean matchFound = false;
+        for (ComboInterface component : components) {
+            if (component.toString().equalsIgnoreCase(name)) {
+                components.remove(component);
+            matchFound = true;
+            break;
+            }
+        }
+        if (matchFound) {
+            System.out.println("Component with name " + name + " removed.");
+        } else {
+            System.out.println("Component with name " + name + " not found.");
+        }
     }
 
     public void setDiscountPercentage(Double discountPercentage) {
@@ -108,7 +139,7 @@ class Combos implements ComboInterface {
         }
     }
     public void display() {
-        System.out.println("Combo: " + name + "\n");
+        System.out.println("Combo: " + name);
         if(components.size()>0){
             System.out.println("Items:");
             components.forEach(ComboInterface::display);

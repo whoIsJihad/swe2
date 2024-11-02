@@ -10,7 +10,7 @@ public class Burger implements ComboInterface{
     Integer spiceLevel;
     //default burger structure
     public Burger(){
-        this.name="Beef Burger";
+        this.name="Burger";
         this.price=300.0;
         this.ingredients=List.of("Beef Patty","Cheese","Lettuce","Tomato","Onion","Pickles","Ketchup","Mayonnaise");
         this.size="Regular";
@@ -23,13 +23,11 @@ public class Burger implements ComboInterface{
         this.size=size;
         this.spiceLevel=spiceLevel;
     }
+    public String toString() {
+        return name;
+    }
     public void display() {
-        System.out.println("🍔 Name: " + name);
-        System.out.println("💵 Price: " + price + " tk");
-        System.out.println("🥗 Ingredients:");
-        
-        System.out.println("📏 Size: " + size);
-        System.out.println("🌶️ Spice Level: " + spiceLevel+"\n");
+        System.out.println(name + " - " + price + " tk");
     } 
     public Double getPrice(){
         return price;

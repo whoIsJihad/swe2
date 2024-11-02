@@ -6,10 +6,11 @@ import src.task1.FoodItems.*;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Menu menu = new Menu(); // Assuming a Menu class to store items and combos
+        Menu menu = new Menu(); 
 
         System.out.println("Welcome to Khaidai Bistro!");
         int choice;
+        menu.display();
 
         do {
             System.out.println("\nMenu:");
@@ -59,8 +60,12 @@ public class Main {
             switch (action) {
                 case "add":
                     if (parts.length > 1) {
-                        // menu.addItemToCombo(combo, parts[1]); 
-                        combo.addItem(parts[1]); // Add item to the combo
+                        String item = parts[1].toLowerCase();
+                        if (item.equals("burger") || item.equals("fries") || item.equals("drink") || item.equals("wedges") || item.equals("shawarma")) {
+                            combo.addItem(parts[1]); 
+                        } else {
+                            combo.addComponent(menu,item);
+                        }
                     } else {
                         System.out.println("Please specify an item to add.");
                     }

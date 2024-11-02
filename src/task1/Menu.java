@@ -11,6 +11,12 @@ public class Menu{
     List<ComboInterface> allCombo;
     public Menu(){
         this.allCombo=new ArrayList<>();
+        //add a burger,fries,wedges,shawarma,drink 
+        allCombo.add(new Burger());
+        allCombo.add(new Fries());
+        allCombo.add(new Wedges());
+        allCombo.add(new Shawarma());
+        allCombo.add(new Drink());
     }
     public Menu(List<ComboInterface> combos){
         this.allCombo=combos;
@@ -22,10 +28,10 @@ public class Menu{
     public void display(){
         System.out.println("Menu:");
         for(int i=0;i<allCombo.size();i++){
-            System.out.println("\t"+(i+1)+":");
-            System.out.println("\t");
+           
             allCombo.get(i).display();
         }
+        System.out.println("");
     }
     public void removeCombo(ComboInterface combo){
         allCombo.remove(combo);
@@ -37,9 +43,11 @@ public class Menu{
 
         allCombo.forEach(ComboInterface::deliver);
     }
-    public Double getPrice(){
-        return allCombo.stream().mapToDouble(ComboInterface::getPrice).sum();
+    // public Double getPrice(){
+    //     return allCombo.stream().mapToDouble(ComboInterface::getPrice).sum();
+    // }
+    List<ComboInterface> getCombos(){
+        return allCombo;
     }
-
 
 }
