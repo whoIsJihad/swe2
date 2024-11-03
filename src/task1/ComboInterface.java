@@ -20,14 +20,10 @@ class Combos implements ComboInterface {
     //a list of objects which implements ComboInterface
     List<ComboInterface> components;
     //a list of objects which implements ComboInterface and also free 
-
     List<ComboInterface> freeItems;
     //to calculate the discounted price
     Double discountPercentage;
-    //
     String name;
-
-    // constructor
     public Combos(List<ComboInterface> components, String name) {
         this.components = components;
         this.name = name;
@@ -148,18 +144,19 @@ class Combos implements ComboInterface {
         }
     }
     public void display() {
-        System.out.println("Combo: " + name);
-        if(components.size()>0){
-            components.forEach(ComboInterface::display);
+        System.out.println(name);
+        if (components.size() > 0) {
+            components.forEach(component -> System.out.println(component.toString()));
         }
         System.out.print("Free Items:");
-        if(freeItems.size()>0){
-            freeItems.forEach(ComboInterface::display);
+        if (freeItems.size() > 0) {
+            freeItems.forEach(freeItem -> System.out.println(freeItem.toString() + " (free!!!)"));
         }
+        System.out.println("");
         double totalValue = components.stream().mapToDouble(ComboInterface::getPrice).sum();
-        System.out.println("Total Value: " + totalValue);
+        System.out.println("Total Value: " + totalValue+" tk");
         System.out.println("Discount Percentage: " + discountPercentage + "%");
-        System.out.println("Discounted Price: " + getPrice());
+        System.out.println("Discounted Price: " + getPrice()+" tk");
     }
 
     public void deliver() {

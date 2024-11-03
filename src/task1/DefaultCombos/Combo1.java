@@ -23,5 +23,9 @@ public class Combo1 implements ComboInterface {
     public void deliver() {
         System.out.println("Delivering " + this.name);
     }
+    @Override
+    public String toString() {
+        return this.name + "(Burger +Fries +Drink)- " + this.price;
+    }
 
 }

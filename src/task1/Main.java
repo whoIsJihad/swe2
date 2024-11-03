@@ -1,5 +1,4 @@
 package src.task1;
-
 import java.util.Scanner;
 import src.task1.FoodItems.*;
 
